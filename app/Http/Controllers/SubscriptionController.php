@@ -16,7 +16,10 @@ class SubscriptionController extends Controller
     public function index()
     {
         //
-        return 'hello';
+        $sub = new Subscription();
+        $subscriptions = $sub->getAllSubscriptions();
+
+        return $subscriptions;
     }
 
     /**
@@ -65,7 +68,7 @@ class SubscriptionController extends Controller
 
             $subscription->save();
         }
-        return $user_is_active;
+        return 'user subscribed';
 
     }
 

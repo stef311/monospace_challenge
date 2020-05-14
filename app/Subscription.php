@@ -13,4 +13,10 @@ class Subscription extends Model
 
         return $subscriptions;
     }
+
+    public function getAllSubscriptions(){
+        $subscriptions = DB::table('subscriptions')->get();
+
+        return $subscriptions;
+    }
 }
