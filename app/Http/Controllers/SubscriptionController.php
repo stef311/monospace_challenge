@@ -44,12 +44,16 @@ class SubscriptionController extends Controller
         $user = $users[$user_id];
         $user_is_active = $user->active;
 
+        $current_subscriptions = getSubscriptionsFromUser($user_id);
+
         if ($user_is_active) {
             $subscription = new Subscription;
 
             $subscription->subscription_type_id = $request->type;
             $subscription->user_id = $user_id;
+
             $subscription->price = $request->price;
+
             $subscription->from = $request->from;
             $subscription->to = $request->to;
 
